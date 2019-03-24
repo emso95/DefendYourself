@@ -15,6 +15,8 @@
 		B02CFEDB22471D3A0074961B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B02CFED922471D3A0074961B /* LaunchScreen.storyboard */; };
 		B02CFEE622471D3B0074961B /* DefendYourselfTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02CFEE522471D3B0074961B /* DefendYourselfTests.swift */; };
 		B02CFEF122471D3B0074961B /* DefendYourselfUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02CFEF022471D3B0074961B /* DefendYourselfUITests.swift */; };
+		B06AE87C22472F2A00BC0AA9 /* fire.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B06AE87B22472F2900BC0AA9 /* fire.jpg */; };
+		B06AE87E2247301300BC0AA9 /* ice.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B06AE87D2247301300BC0AA9 /* ice.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,8 @@
 		B02CFEEC22471D3B0074961B /* DefendYourselfUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DefendYourselfUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B02CFEF022471D3B0074961B /* DefendYourselfUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefendYourselfUITests.swift; sourceTree = "<group>"; };
 		B02CFEF222471D3B0074961B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B06AE87B22472F2900BC0AA9 /* fire.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = fire.jpg; sourceTree = "<group>"; };
+		B06AE87D2247301300BC0AA9 /* ice.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ice.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +106,8 @@
 				B02CFECE22471D390074961B /* AppDelegate.swift */,
 				B02CFED022471D390074961B /* art.scnassets */,
 				B02CFED222471D390074961B /* ViewController.swift */,
+				B06AE87B22472F2900BC0AA9 /* fire.jpg */,
+				B06AE87D2247301300BC0AA9 /* ice.jpg */,
 				B02CFED422471D390074961B /* Main.storyboard */,
 				B02CFED722471D3A0074961B /* Assets.xcassets */,
 				B02CFED922471D3A0074961B /* LaunchScreen.storyboard */,
@@ -233,7 +239,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				B02CFED122471D390074961B /* art.scnassets in Resources */,
+				B06AE87C22472F2A00BC0AA9 /* fire.jpg in Resources */,
 				B02CFEDB22471D3A0074961B /* LaunchScreen.storyboard in Resources */,
+				B06AE87E2247301300BC0AA9 /* ice.jpg in Resources */,
 				B02CFED822471D3A0074961B /* Assets.xcassets in Resources */,
 				B02CFED622471D390074961B /* Main.storyboard in Resources */,
 			);
