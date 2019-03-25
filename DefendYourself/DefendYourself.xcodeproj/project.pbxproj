@@ -17,6 +17,8 @@
 		B02CFEF122471D3B0074961B /* DefendYourselfUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02CFEF022471D3B0074961B /* DefendYourselfUITests.swift */; };
 		B06AE87C22472F2A00BC0AA9 /* fire.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B06AE87B22472F2900BC0AA9 /* fire.jpg */; };
 		B06AE87E2247301300BC0AA9 /* ice.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B06AE87D2247301300BC0AA9 /* ice.jpg */; };
+		B06AE8812248184A00BC0AA9 /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = B06AE87F2248184A00BC0AA9 /* spark.png */; };
+		B06AE8822248184A00BC0AA9 /* Explode.scnp in Resources */ = {isa = PBXBuildFile; fileRef = B06AE8802248184A00BC0AA9 /* Explode.scnp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,8 @@
 		B02CFEF222471D3B0074961B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B06AE87B22472F2900BC0AA9 /* fire.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = fire.jpg; sourceTree = "<group>"; };
 		B06AE87D2247301300BC0AA9 /* ice.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ice.jpg; sourceTree = "<group>"; };
+		B06AE87F2248184A00BC0AA9 /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
+		B06AE8802248184A00BC0AA9 /* Explode.scnp */ = {isa = PBXFileReference; lastKnownFileType = file.scp; path = Explode.scnp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +107,7 @@
 		B02CFECD22471D390074961B /* DefendYourself */ = {
 			isa = PBXGroup;
 			children = (
+				B06AE883224818E800BC0AA9 /* Particles */,
 				B02CFECE22471D390074961B /* AppDelegate.swift */,
 				B02CFED022471D390074961B /* art.scnassets */,
 				B02CFED222471D390074961B /* ViewController.swift */,
@@ -132,6 +137,15 @@
 				B02CFEF222471D3B0074961B /* Info.plist */,
 			);
 			path = DefendYourselfUITests;
+			sourceTree = "<group>";
+		};
+		B06AE883224818E800BC0AA9 /* Particles */ = {
+			isa = PBXGroup;
+			children = (
+				B06AE87F2248184A00BC0AA9 /* spark.png */,
+				B06AE8802248184A00BC0AA9 /* Explode.scnp */,
+			);
+			path = Particles;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -241,9 +255,11 @@
 				B02CFED122471D390074961B /* art.scnassets in Resources */,
 				B06AE87C22472F2A00BC0AA9 /* fire.jpg in Resources */,
 				B02CFEDB22471D3A0074961B /* LaunchScreen.storyboard in Resources */,
+				B06AE8812248184A00BC0AA9 /* spark.png in Resources */,
 				B06AE87E2247301300BC0AA9 /* ice.jpg in Resources */,
 				B02CFED822471D3A0074961B /* Assets.xcassets in Resources */,
 				B02CFED622471D390074961B /* Main.storyboard in Resources */,
+				B06AE8822248184A00BC0AA9 /* Explode.scnp in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
