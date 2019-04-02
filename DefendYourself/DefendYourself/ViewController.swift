@@ -14,12 +14,17 @@ class ViewController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDele
 
     @IBOutlet var sceneView: ARSCNView!
     
+    @IBOutlet weak var waveLabel: UILabel!
+    @IBOutlet weak var healthLabel: UILabel!
+    @IBOutlet weak var leftLabel: UILabel!
+    var health = 3;
+    var ballNum = 0;
     @IBAction func onIceBall(_ sender: Any) {
         fireMissile()
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.healthLabel.text = String(self.health)
         // Set the view's delegate
         sceneView.delegate = self
         sceneView.scene.physicsWorld.contactDelegate = self
@@ -27,8 +32,28 @@ class ViewController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDele
         sceneView.showsStatistics = true
         
         // Create a new scene
-       
-        addTargetNodes()
+        startGame();
+        
+    }
+    func startGame(){
+        for i in 1...10{
+            UIView.animate(withDuration: 1.0, delay: 0.0, options: UIView.AnimationOptions.curveEaseOut, animations: {
+                self.waveLabel.alpha = 0.0
+            }, completion: {
+                (finished: Bool) -> Void in
+                
+                //Once the label is completely invisible, set the text and fade it back in
+                self.waveLabel.text = "Wave" + String(i)
+                
+                // Fade in
+                UIView.animate(withDuration: 1.0, delay: 0.0, options: UIView.AnimationOptions.curveEaseIn, animations: {
+                    self.waveLabel.alpha = 1.0
+                }, completion: nil)
+            })
+            addTargetNodes(num: 2^i)
+            
+        }
+        
     }
     func getUserVector() -> (SCNVector3, SCNVector3) { // (direction, position)
         if let frame = self.sceneView.session.currentFrame {
@@ -79,9 +104,9 @@ class ViewController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDele
         sphereNode.physicsBody?.collisionBitMask = CollisionCategory.targetCategory.rawValue
         return sphereNode
     }
-    func addTargetNodes(){
+    func addTargetNodes(num: Int){
         let (direction, position) = self.getUserVector()
-        for index in 1...5 {
+        for index in 0...num {
             
             
             let sphere = SCNSphere(radius: 1)
@@ -101,7 +126,17 @@ class ViewController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDele
             
             //rotate
             let action : SCNAction = SCNAction.move(to: position, duration: 10)
-             sphereNode.runAction(action)
+            let explosed : SCNAction = SCNAction.run { (sphereNode) in
+                sphereNode.removeFromParentNode()
+                let  explosion = SCNParticleSystem(named: "Explode", inDirectory: nil)
+                sphereNode.addParticleSystem(explosion!)
+                self.health = self.health - 1
+                DispatchQueue.main.async {
+                    self.healthLabel.text = String(self.health)
+                }
+                }
+            
+             sphereNode.runAction(SCNAction.sequence([action,explosed]))
             
             //for the collision detection
             sphereNode.physicsBody?.categoryBitMask = CollisionCategory.targetCategory.rawValue
@@ -177,4 +212,5 @@ struct CollisionCategory: OptionSet {
     let rawValue: Int
     static let missileCategory  = CollisionCategory(rawValue: 1 << 0)
     static let targetCategory = CollisionCategory(rawValue: 1 << 1)
+    
 }
