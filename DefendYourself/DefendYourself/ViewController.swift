@@ -19,6 +19,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDele
     @IBOutlet weak var leftLabel: UILabel!
     var health = 3;
     var ballNum = 0;
+    var turn = 1;
     @IBAction func onIceBall(_ sender: Any) {
         fireMissile()
     }
@@ -32,27 +33,27 @@ class ViewController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDele
         sceneView.showsStatistics = true
         
         // Create a new scene
-        startGame();
+        startGame(num:self.turn);
         
     }
-    func startGame(){
-        for i in 1...10{
+    func startGame(num:Int){
+       
             UIView.animate(withDuration: 1.0, delay: 0.0, options: UIView.AnimationOptions.curveEaseOut, animations: {
-                self.waveLabel.alpha = 0.0
+                self.waveLabel.alpha = 1.0
             }, completion: {
                 (finished: Bool) -> Void in
                 
                 //Once the label is completely invisible, set the text and fade it back in
-                self.waveLabel.text = "Wave" + String(i)
+                self.waveLabel.text = "Wave" + String(num)
                 
                 // Fade in
-                UIView.animate(withDuration: 1.0, delay: 0.0, options: UIView.AnimationOptions.curveEaseIn, animations: {
-                    self.waveLabel.alpha = 1.0
+                UIView.animate(withDuration: 2.0, delay: 0.0, options: UIView.AnimationOptions.curveEaseIn, animations: {
+                    self.waveLabel.alpha = 0.0
                 }, completion: nil)
             })
-            addTargetNodes(num: 2^i)
-            
-        }
+            addTargetNodes(num: 2^num)
+            self.ballNum = 2^num
+        
         
     }
     func getUserVector() -> (SCNVector3, SCNVector3) { // (direction, position)
@@ -199,7 +200,13 @@ class ViewController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDele
             DispatchQueue.main.async {
                 contact.nodeA.removeFromParentNode()
                 contact.nodeB.removeFromParentNode()
-                
+                if self.ballNum == 0{
+                    self.turn += 1
+                    self.startGame(num: self.turn)
+                }
+                else{
+                    self.ballNum -= 1
+                }
             }
             
             //playSound(sound: "explosion", format: "wav")
