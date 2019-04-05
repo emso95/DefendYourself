@@ -36,6 +36,8 @@ class ViewController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDele
         startGame(num:self.turn);
         
     }
+    
+
     func startGame(num:Int){
        
             UIView.animate(withDuration: 1.0, delay: 0.0, options: UIView.AnimationOptions.curveEaseOut, animations: {
@@ -51,9 +53,9 @@ class ViewController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDele
                     self.waveLabel.alpha = 0.0
                 }, completion: nil)
             })
-            addTargetNodes(num: 2^num)
-            self.ballNum = 2^num
-        
+            addTargetNodes(num: Int(pow(Double(2),Double(num))))
+            self.ballNum = Int(pow(Double(2),Double(num))) + 1
+            self.leftLabel.text = String(self.ballNum)
         
     }
     func getUserVector() -> (SCNVector3, SCNVector3) { // (direction, position)
@@ -132,8 +134,19 @@ class ViewController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDele
                 let  explosion = SCNParticleSystem(named: "Explode", inDirectory: nil)
                 sphereNode.addParticleSystem(explosion!)
                 self.health = self.health - 1
+                self.ballNum = self.ballNum - 1
                 DispatchQueue.main.async {
-                    self.healthLabel.text = String(self.health)
+                    if(self.health<=0){
+                        self.dismiss(animated: true, completion: nil)
+                    }
+                    else{
+                        self.healthLabel.text = String(self.health)
+                    }
+                    if(self.ballNum == 0){
+                        self.turn += 1
+                        self.startGame(num: self.turn)
+                    }
+                    
                 }
                 }
             
@@ -200,16 +213,17 @@ class ViewController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDele
             DispatchQueue.main.async {
                 contact.nodeA.removeFromParentNode()
                 contact.nodeB.removeFromParentNode()
-                if self.ballNum == 0{
+                if self.ballNum == 1{
                     self.turn += 1
                     self.startGame(num: self.turn)
                 }
                 else{
                     self.ballNum -= 1
+                    self.leftLabel.text = String(self.ballNum)
                 }
             }
             
-            //playSound(sound: "explosion", format: "wav")
+            
             let  explosion = SCNParticleSystem(named: "Explode", inDirectory: nil)
             contact.nodeB.addParticleSystem(explosion!)
         }

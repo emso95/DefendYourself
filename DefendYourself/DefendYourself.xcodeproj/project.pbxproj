@@ -19,6 +19,7 @@
 		B06AE87E2247301300BC0AA9 /* ice.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B06AE87D2247301300BC0AA9 /* ice.jpg */; };
 		B06AE8812248184A00BC0AA9 /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = B06AE87F2248184A00BC0AA9 /* spark.png */; };
 		B06AE8822248184A00BC0AA9 /* Explode.scnp in Resources */ = {isa = PBXBuildFile; fileRef = B06AE8802248184A00BC0AA9 /* Explode.scnp */; };
+		B06AE8872257DC4500BC0AA9 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06AE8862257DC4500BC0AA9 /* HomeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		B06AE87D2247301300BC0AA9 /* ice.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ice.jpg; sourceTree = "<group>"; };
 		B06AE87F2248184A00BC0AA9 /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
 		B06AE8802248184A00BC0AA9 /* Explode.scnp */ = {isa = PBXFileReference; lastKnownFileType = file.scp; path = Explode.scnp; sourceTree = "<group>"; };
+		B06AE8862257DC4500BC0AA9 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +119,7 @@
 				B02CFED722471D3A0074961B /* Assets.xcassets */,
 				B02CFED922471D3A0074961B /* LaunchScreen.storyboard */,
 				B02CFEDC22471D3A0074961B /* Info.plist */,
+				B06AE8862257DC4500BC0AA9 /* HomeViewController.swift */,
 			);
 			path = DefendYourself;
 			sourceTree = "<group>";
@@ -286,6 +289,7 @@
 			files = (
 				B02CFED322471D390074961B /* ViewController.swift in Sources */,
 				B02CFECF22471D390074961B /* AppDelegate.swift in Sources */,
+				B06AE8872257DC4500BC0AA9 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
